@@ -29,9 +29,9 @@ def bedrock_chain():
     bedrock_runtime = session.client("bedrock-runtime", config=retry_config)
 
     # model_id = "anthropic.claude-3-sonnet-20240229-v1:0"    
-    # model_id = "us.amazon.nova-micro-v1:0"
+    model_id = "us.amazon.nova-micro-v1:0"
     # model_id = "us.amazon.nova-pro-v1:0"
-    model_id = "us.amazon.nova-lite-v1:0"    
+    # model_id = "us.amazon.nova-lite-v1:0"    
         
     model_kwargs =  { 
         "max_tokens": 2048,  
