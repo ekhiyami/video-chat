@@ -69,11 +69,16 @@ def handle_input():
 
     if len(st.session_state.questions)==0:
         video_id = utility.get_video_id_from_url(input)
+        
+        if not video_id:
+            st.error("❌ Invalid YouTube URL. Please provide a valid YouTube video link.")
+            st.session_state.input = ""
+            return None
 
         # Get transcript from youtube video
         transcript = utility.get_transcript(video_id)
         if not transcript:
-            st.error("The video provided has no English transcript. 💔 Sorry I can't help here.💔")
+            st.error("❌ Unable to retrieve transcript for this video. The video may not have captions available, be private, or have transcripts disabled. 💔")
             st.session_state.input = ""
             return None
 
